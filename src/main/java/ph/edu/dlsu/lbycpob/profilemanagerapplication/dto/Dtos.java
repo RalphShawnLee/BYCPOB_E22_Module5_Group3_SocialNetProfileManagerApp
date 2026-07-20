@@ -1,8 +1,8 @@
-package ph.edu.dlsu.lbycpob.profilemanager.dto;
+package ph.edu.dlsu.lbycpob.profilemanagerapplication.dto;
 
 
 
-import ph.edu.dlsu.lbycpob.profilemanager.model.Profile;
+import ph.edu.dlsu.lbycpob.profilemanagerapplication.model.Profile;
 
 import java.util.List;
 import java.util.UUID;
