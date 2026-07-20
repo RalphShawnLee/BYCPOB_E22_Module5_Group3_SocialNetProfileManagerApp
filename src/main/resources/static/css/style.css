@@ -1,0 +1,101 @@
+/* css/style.css */
+:root {
+  --font-heading: "Segoe UI", system-ui, -apple-system, "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --clr-header-bg:        #1e3a6e;
+  --clr-header-bg2:       #2d5299;
+  --clr-header-text:      #ffffff;
+
+  --clr-page-bg:          #dde3ec;
+  --clr-panel-bg:         #f7f8fa;
+  --clr-panel-border:     #c8cdd8;
+  --clr-panel-shadow:     rgba(30, 58, 110, 0.10);
+
+  --clr-blue:             #2456b4;
+  --clr-blue-hover:       #1a3f8c;
+  --clr-red:              #b83030;
+  --clr-red-hover:        #922424;
+  --clr-green:            #1e8c4a;
+  --clr-green-hover:      #166638;
+  --clr-orange:           #c46010;
+  --clr-orange-hover:     #9e4d0c;
+  --clr-gray:             #4a5568;
+  --clr-gray-hover:       #2d3748;
+
+  --clr-textbox-bg:       #ffffff;
+  --clr-textbox-bdr:      #c0c7d4;
+  --clr-list-active:      #2456b4;
+  --clr-list-active-text: #ffffff;
+
+  --clr-status-bg:        #1a2e55;
+  --clr-status-text:      rgba(255, 255, 255, 0.88);
+
+  --clr-label:            #3a4560;
+  --clr-heading:          #111827;
+  --clr-subheading:       #1e3a6e;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --header-h:    52px;
+  --statusbar-h: 36px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+  height: 100%;
+  font-family: var(--font-body);
+  background: var(--clr-page-bg);
+  color: var(--clr-heading);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#app-header {
+  height: var(--header-h);
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--clr-header-bg), var(--clr-header-bg2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.30);
+  position: relative;
+  z-index: 10;
+}
+
+#app-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  color: var(--clr-header-text);
+  margin: 0;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#app-wrapper {
+  height: calc(100% - var(--header-h));
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#main-content {
+  height: calc(100% - var(--statusbar-h));
+  flex-shrink: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0.75rem !important;
+}
+
+
