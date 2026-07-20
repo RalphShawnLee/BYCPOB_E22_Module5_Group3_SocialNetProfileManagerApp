@@ -258,4 +258,134 @@ body {
 
 .profile-hero { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; flex-shrink: 0; }
 
+.profile-thumb {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--clr-blue);
+  background: #dde3ec;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(36, 86, 180, 0.20);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
 
+.profile-thumb:hover { transform: scale(1.05); box-shadow: 0 4px 16px rgba(36, 86, 180, 0.30); }
+
+.profile-hero-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  color: var(--clr-heading);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.sn-divider { border: none; border-top: 1px solid var(--clr-panel-border); margin: 0.5rem 0 0.65rem; flex-shrink: 0; }
+
+.sn-textbox {
+  background: var(--clr-textbox-bg);
+  border: 1px solid var(--clr-textbox-bdr);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #2d3748;
+  min-height: 2.4rem;
+  line-height: 1.55;
+  flex-shrink: 0;
+}
+
+.sn-textbox--tall {
+  flex-shrink: 1;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #b0bac8 #f0f2f6;
+}
+
+.sn-textbox--tall::-webkit-scrollbar { width: 5px; }
+.sn-textbox--tall::-webkit-scrollbar-track { background: #f0f2f6; border-radius: 3px; }
+.sn-textbox--tall::-webkit-scrollbar-thumb { background: #b0bac8; border-radius: 3px; }
+.sn-textbox--tall::-webkit-scrollbar-thumb:hover { background: #8896a8; }
+
+.sn-textbox .friend-entry { padding: 0.2rem 0; border-bottom: 1px solid #eef0f4; font-size: 0.85rem; color: #2d3748; }
+.sn-textbox .friend-entry:last-child { border-bottom: none; }
+
+#status-bar {
+  height: var(--statusbar-h);
+  flex-shrink: 0;
+  background: var(--clr-status-bg);
+  font-size: 0.82rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+  color: var(--clr-status-text);
+  letter-spacing: 0.01em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.empty-state { color: #9aa5b8; font-style: italic; font-size: 0.8rem; padding: 0.5rem 0.65rem; }
+
+#btn-exit { margin-top: auto; flex-shrink: 0; }
+
+@media (max-width: 767.98px) {
+  html, body { height: auto; overflow: auto; }
+  #app-wrapper, #main-content { height: auto; overflow: visible; }
+  #main-content > .row { height: auto; min-height: 0; }
+  #main-content > .row > [class*="col-"] { display: block; height: auto; }
+  .sn-panel { height: auto !important; min-height: 0; overflow: visible; margin-bottom: 0.75rem; }
+  .sn-panel.right-panel { overflow-y: visible; }
+  .profile-list-box { flex: none; min-height: 120px; max-height: 300px; overflow-y: auto; }
+  .sn-textbox--tall { flex: none; min-height: 80px; max-height: 160px; overflow-y: auto; }
+  .profile-hero { flex-direction: column; align-items: flex-start; }
+  .btn-row { flex-wrap: wrap; }
+}
+
+.upload-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #e8eef8;
+  border: 1px solid var(--clr-panel-border);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.65rem;
+  font-size: 0.78rem;
+  color: var(--clr-label);
+  overflow: hidden;
+}
+
+.upload-progress-bar {
+  width: 40px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--clr-blue) 50%, transparent 100%);
+  flex-shrink: 0;
+  animation: slide-across 1.2s ease-in-out infinite;
+}
+
+#upload-progress-label { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+@keyframes slide-across {
+  0% { transform: translateX(-60px); }
+  100% { transform: translateX(200px); }
+}
+
+input[type="file"].sn-input { padding: 0.3rem 0.5rem; cursor: pointer; line-height: 1.4; }
+
+input[type="file"].sn-input::file-selector-button {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--clr-blue);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.6rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+input[type="file"].sn-input::file-selector-button:hover { background: var(--clr-blue-hover); }
