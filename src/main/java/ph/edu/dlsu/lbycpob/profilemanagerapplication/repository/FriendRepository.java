@@ -1,4 +1,4 @@
 package ph.edu.dlsu.lbycpob.profilemanagerapplication.repository;
 
-public interface ProfileRepository {
+public interface FriendRepository {
 }
