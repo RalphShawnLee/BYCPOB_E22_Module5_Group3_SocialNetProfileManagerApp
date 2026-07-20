@@ -98,4 +98,95 @@
               <!-- Change Status -->
               <p class="field-label">Change Status:</p>
               <input type="text" id="input-status" class="form-control sn-input mb-1"
+                     placeholder="Enter new status" />
+              <button id="btn-status" class="btn sn-btn-blue w-100 mb-3">Update Status</button>
 
+              <!-- Change Quote -->
+              <p class="field-label">Change Favorite Quote:</p>
+              <input type="text" id="input-quote" class="form-control sn-input mb-1"
+                     placeholder="Enter favorite quote" />
+              <button id="btn-quote" class="btn sn-btn-blue w-100 mb-3">Update Quote</button>
+
+              <!-- =====================================================
+                   Change Picture — two input modes
+                   =====================================================
+                   Mode A (Upload):
+                     app.js sends the file to this server's own
+                     POST /api/profiles/{id}/avatar, which compresses it
+                     to WebP and stores it in a Supabase Storage bucket,
+                     then saves the returned public URL to Postgres --
+                     all in one request, no separate client-side upload
+                     step or third-party origin involved.
+
+                   Mode B (URL):
+                     The user pastes a full https:// URL. app.js PATCHes
+                     it straight to /api/profiles/{id}/picture.
+
+                   The two modes share the same "Update Picture" button.
+                   If both have values, the file upload takes priority.
+                   ===================================================== -->
+              <p class="field-label">Change Picture:</p>
+
+              <label for="input-picture-file" class="field-label mt-1">
+                Upload from device:
+              </label>
+              <input
+                      type="file"
+                      id="input-picture-file"
+                      class="form-control sn-input mb-2"
+                      accept="image/*"
+              />
+
+              <label for="input-picture-url" class="field-label">
+                Or paste an image URL:
+              </label>
+              <input
+                      type="url"
+                      id="input-picture-url"
+                      class="form-control sn-input mb-1"
+                      placeholder="https://example.com/image.webp"
+              />
+
+              <div id="upload-progress" class="upload-progress mb-2" hidden>
+                <div class="upload-progress-bar"></div>
+                <span id="upload-progress-label">Uploading...</span>
+              </div>
+
+              <button id="btn-picture" class="btn sn-btn-blue w-100 mb-3">
+                Update Picture
+              </button>
+
+              <!-- Manage Friends -->
+              <p class="field-label">Manage Friends:</p>
+              <input type="text" id="input-friend" class="form-control sn-input mb-2"
+                     placeholder="Enter friend's name" />
+              <div class="btn-row mb-3">
+                <button id="btn-add-friend"    class="btn sn-btn-green flex-grow-1">Add Friend</button>
+                <button id="btn-remove-friend" class="btn sn-btn-orange flex-grow-1">Remove</button>
+              </div>
+
+              <!-- Exit -->
+              <button id="btn-exit" class="btn sn-btn-gray w-100 mt-auto">Exit</button>
+            </div>
+          </div>
+
+        </div><!-- /.row -->
+      </main>
+
+      <!-- ===== STATUS BAR ===== -->
+      <footer id="status-bar">
+        <span id="status-message">Ready. Select a profile from the list.</span>
+      </footer>
+    </div><!-- /#app-wrapper -->
+
+    <!-- Bootstrap JS bundle via CDN -->
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+    ></script>
+
+    <!-- Application logic -->
+    <script th:src="@{/js/app.js}" src="js/app.js"></script>
+  </body>
+</html>
