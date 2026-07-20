@@ -10,7 +10,6 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
